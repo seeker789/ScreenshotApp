@@ -1,0 +1,81 @@
+<Window x:Class="ScreenshotApp.Views.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Screenshot Overlay"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        WindowState="Normal"
+        Cursor="None">
+
+    <Grid x:Name="RootGrid">
+        <!-- Dimmed Backdrop with Hole (using 4 rectangles for inverted dimming) -->
+        <!-- Top strip -->
+        <Rectangle x:Name="DimmedTop"
+                   Fill="#023047"
+                   Opacity="0"
+                   VerticalAlignment="Top"/>
+        <!-- Bottom strip -->
+        <Rectangle x:Name="DimmedBottom"
+                   Fill="#023047"
+                   Opacity="0"
+                   VerticalAlignment="Bottom"/>
+        <!-- Left strip -->
+        <Rectangle x:Name="DimmedLeft"
+                   Fill="#023047"
+                   Opacity="0"
+                   HorizontalAlignment="Left"/>
+        <!-- Right strip -->
+        <Rectangle x:Name="DimmedRight"
+                   Fill="#023047"
+                   Opacity="0"
+                   HorizontalAlignment="Right"/>
+
+        <!-- Full backdrop (shown when no selection) -->
+        <Rectangle x:Name="Backdrop"
+                   Fill="#023047"
+                   Opacity="0">
+            <Rectangle.CacheMode>
+                <BitmapCache />
+            </Rectangle.CacheMode>
+        </Rectangle>
+
+        <!-- Selection Rectangle (sunrise gold border) -->
+        <Rectangle x:Name="SelectionRectangle"
+                   Stroke="#ffb703"
+                   StrokeThickness="2"
+                   Fill="Transparent"
+                   Visibility="Collapsed"/>
+
+        <!-- Dimensions Tooltip -->
+        <Border x:Name="DimensionsTooltip"
+                Background="#023047"
+                CornerRadius="4"
+                Padding="4,2"
+                Visibility="Collapsed">
+            <TextBlock x:Name="DimensionsText"
+                       Text="0 × 0"
+                       FontSize="12"
+                       Foreground="#ffb703"
+                       FontFamily="Segoe UI"/>
+        </Border>
+
+        <!-- Crosshair Cursor (positioned via code) -->
+        <Canvas x:Name="CrosshairCanvas"
+                Width="21"
+                Height="21"
+                IsHitTestVisible="False">
+            <Line x:Name="CrosshairHorizontal"
+                  Stroke="White"
+                  StrokeThickness="1"
+                  X1="0" X2="21" Y1="10" Y2="10"/>
+            <Line x:Name="CrosshairVertical"
+                  Stroke="White"
+                  StrokeThickness="1"
+                  X1="10" X2="10" Y1="0" Y2="21"/>
+        </Canvas>
+    </Grid>
+</Window>

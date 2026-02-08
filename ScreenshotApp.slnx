@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ScreenshotApp.Core/ScreenshotApp.Core.csproj" />
+  <Project Path="ScreenshotApp.Tests/ScreenshotApp.Tests.csproj" />
+  <Project Path="ScreenshotApp/ScreenshotApp.csproj" />
+</Solution>

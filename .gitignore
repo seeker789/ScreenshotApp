@@ -1,0 +1,22 @@
+# Exclude unwanted folders
+_bmad/
+_bmad-output/
+.claude/
+
+# Build outputs
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
